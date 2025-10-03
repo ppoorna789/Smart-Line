@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudySync - Smart Study Planner</title>
+    <link rel="stylesheet" href="StudySync.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="light-mode">
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <h1><i class="fas fa-book-reader"></i>Smart Line</h1>
+                <p class="tagline">For your smart study.</p>
+            </div>
+            <div class="theme-toggle">
+                <button id="theme-toggle-btn">
+                    <i class="fas fa-moon"></i>
+                    <span>Dark Mode</span>
+                </button>
+            </div>
+        </header>
+
+        <div class="quote-container">
+            <div id="quote-text">Loading your daily motivation...</div>
+            <div id="quote-author"></div>
+        </div>
+
+        <main>
+            <section class="app-section" id="todo-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-tasks"></i> Tasks</h2>
+                </div>
+                <div class="section-content">
+                    <div class="todo-form">
+                        <div class="form-group">
+                            <label for="todo-input"><i class="fas fa-pencil-alt"></i> Task Description</label>
+                            <input type="text" id="todo-input" placeholder="What do you need to study?">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject-select"><i class="fas fa-book"></i> Subject</label>
+                            <select id="subject-select">
+                                <option value="">Select Subject</option>
+                                <option value="Math">Math</option>
+                                <option value="Science">Science</option>
+                                <option value="History">History</option>
+                                <option value="English">English</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <button id="add-todo-btn"><i class="fas fa-plus"></i> Add Task</button>
+                    </div>
+                    <div class="todo-filters">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="Math">Math</button>
+                        <button class="filter-btn" data-filter="Science">Science</button>
+                        <button class="filter-btn" data-filter="History">History</button>
+                        <button class="filter-btn" data-filter="English">English</button>
+                        <button class="filter-btn" data-filter="Other">Other</button>
+                    </div>
+                    <ul id="todo-list"></ul>
+                </div>
+            </section>
+
+            <section class="app-section" id="pomodoro-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-clock"></i> Pomodoro Timer</h2>
+                </div>
+                <div class="section-content">
+                    <div class="timer-display">
+                        <div id="timer">25:00</div>
+                        <div id="timer-label">FOCUS TIME</div>
+                    </div>
+                    <div class="timer-controls">
+                        <button id="start-timer-btn"><i class="fas fa-play"></i> Start</button>
+                        <button id="pause-timer-btn" disabled><i class="fas fa-pause"></i> Pause</button>
+                        <button id="reset-timer-btn"><i class="fas fa-redo"></i> Reset</button>
+                    </div>
+                    <div class="timer-info">
+                        <p>Study with the Pomodoro Technique: 25 minutes of focused work followed by a 5-minute break.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="app-section" id="notes-section">
+                <div class="section-header">
+                        <h2 class="card-title">Study Progress</h2>
+                </div>
+                <div class="section-content">
+                    <div class="progress-container">
+                        <p>Overall Completion: <span id="progress-percent">0%</span></p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="stats">
+                        <p>Total Tasks: <span id="total-tasks">0</span></p>
+                        <p>Completed: <span id="completed-tasks">0</span></p>
+                        <p>Pending: <span id="pending-tasks">0</span></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="app-section" id="notes-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-sticky-note"></i> Notes</h2>
+                </div>
+                <div class="section-content">
+                    <div class="notes-controls">
+                        <button id="add-note-btn"><i class="fas fa-plus"></i> New Note</button>
+                    </div>
+                    <div id="notes-container"></div>
+                </div>
+            </section>
+        </main>
+
+        <div id="storage-notice" class="storage-notice">
+            <p><i class="fas fa-info-circle"></i> Your data is stored locally in your browser.</p>
+            <button id="close-notice-btn"><i class="fas fa-times"></i></button>
+        </div>
+    </div>
+
+    <div id="note-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Study Note</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="note-title" placeholder="Note title...">
+                <textarea id="note-content" placeholder="Write your study notes here..."></textarea>
+            </div>
+            <div class="modal-footer">
+                <button id="save-note-btn"><i class="fas fa-save"></i> Save Note</button>
+            </div>
+        </div>
+    </div>
+    <script src="StudySync.js"></script>
+    <div id="foot-end">Ganesh</div>
+</body>
+</html>
